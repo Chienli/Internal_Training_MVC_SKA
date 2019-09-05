@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MVC_SKA.Models.ViewModels;
 
 namespace MVC_SKA.Controllers
 {
@@ -10,21 +11,20 @@ namespace MVC_SKA.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
+            var accountOrderViewModelList = new List<AccountOrderViewModel>();
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+            for (var i = 1; i <= 50; i++)
+            {
+                accountOrderViewModelList.Add(new AccountOrderViewModel()
+                {
+                    Id = i,
+                    AccountType = new Random(i).Next(1, 3) == 1 ? AccountType.Expenditure : AccountType.Income,
+                    Date = new DateTime(2019, new Random(i).Next(1, 13), new Random(i).Next(1, 29)).ToShortDateString(),
+                    Amount = new Random(i).Next(1, 5000)
+                });
+            }
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View(accountOrderViewModelList);
         }
     }
 }
