@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MVC_SKA.Models.Enum;
 using MVC_SKA.Models.ViewModels;
 
 namespace MVC_SKA.Controllers
@@ -18,7 +19,7 @@ namespace MVC_SKA.Controllers
                 accountOrderViewModelList.Add(new AccountOrderViewModel()
                 {
                     Id = i,
-                    AccountType = new Random(i).Next(1, 3) == 1 ? AccountType.Expenditure : AccountType.Income,
+                    AccountType = new Random(i).Next(1, 3) == (int)AccountTypeEnum.Expenditure ? "支出" : "收入",
                     Date = new DateTime(2019, new Random(i).Next(1, 13), new Random(i).Next(1, 29)).ToShortDateString(),
                     Amount = new Random(i).Next(1, 5000)
                 });

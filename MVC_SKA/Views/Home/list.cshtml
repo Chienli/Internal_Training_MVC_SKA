@@ -17,14 +17,7 @@
                 {
                     <tr>
                         <td>@item.Id</td>
-                        @if (@item.AccountType.ToString() == "Income")
-                        {
-                            <td>收入</td>
-                        }
-                        else
-                        {
-                            <td>支出</td>
-                        }
+                        <td>@item.AccountType</td>
                         <td>@item.Date</td>
                         <td>@item.Amount</td>
                     </tr>

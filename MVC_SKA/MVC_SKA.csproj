@@ -127,7 +127,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\AccountOrderViewModel.cs" />
-    <Compile Include="Models\Enum\AccountType.cs" />
+    <Compile Include="Models\Enum\AccountTypeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
