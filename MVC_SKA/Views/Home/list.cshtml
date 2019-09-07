@@ -11,12 +11,20 @@
                 <th>日期</th>
                 <th>金額</th>
             </tr>
+
             @{
                 foreach (var item in Model)
                 {
                     <tr>
                         <td>@item.Id</td>
-                        <td>@item.AccountType</td>
+                        @if (@item.AccountType.ToString() == "Income")
+                        {
+                            <td>收入</td>
+                        }
+                        else
+                        {
+                            <td>支出</td>
+                        }
                         <td>@item.Date</td>
                         <td>@item.Amount</td>
                     </tr>
